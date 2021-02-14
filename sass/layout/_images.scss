@@ -1,0 +1,113 @@
+.images {
+  font-family: "Poppins", sans-serif;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(14rem, 1fr));
+  grid-gap: $gutter-images;
+
+  @media only screen and (max-width: $bp-medium) {
+    grid-template-columns: repeat(2, minmax(14rem, 1fr));
+  }
+
+  @media only screen and (max-width: $bp-small) {
+    grid-gap: calc(#{$gutter-images} / 2);
+  }
+
+  @media only screen and (max-width: $bp-nano) {
+    grid-template-columns: repeat(1, minmax(14rem, 1fr));
+  }
+
+  &__container {
+    position: relative;
+    transition: all .2s;
+
+    &--1 {
+      animation: zoomIn--1 1s ease .5s backwards;
+    }
+
+    &--2 {
+      animation: zoomIn--2 1s ease .75s backwards;
+
+      transform: translateY($translateY);
+
+      @media only screen and (max-width: $bp-nano) {
+        transform: translateY(0);
+        animation: zoomIn--1 1s ease .75s backwards;
+      }
+    }
+
+    &--3 {
+      animation: zoomIn--1 1s ease 1s backwards;
+    }
+
+    &--4 {
+      animation: zoomIn--1 1s ease 1.25s backwards;
+
+      @media only screen and (max-width: $bp-medium) {
+        transform: translateY($translateY);
+        animation: zoomIn--2 1s ease 1.25s backwards;
+      }
+
+      @media only screen and (max-width: $bp-nano) {
+        transform: translateY(0);
+        animation: zoomIn--1 1s ease 1.25s backwards;
+      }
+    }
+
+    &--5 {
+      animation: zoomIn--2 1s ease 1.5s backwards;
+
+      transform: translateY($translateY);
+
+      @media only screen and (max-width: $bp-medium) {
+        transform: translateY(0);
+        animation: zoomIn--1 1s ease 1.5s backwards;
+      }
+    }
+
+    &--6 {
+      animation: zoomIn--1 1s ease 1.75s backwards;
+
+      @media only screen and (max-width: $bp-medium) {
+        transform: translateY($translateY);
+        animation: zoomIn--2 1s ease 1.75s backwards;
+      }
+
+      @media only screen and (max-width: $bp-nano) {
+        transform: translateY(0);
+        animation: zoomIn--1 1s ease 1.75s backwards;
+      }
+    }
+  }
+
+  &__img-box {
+    box-shadow: 0 2rem 8rem rgba(0, 0, 0, .4);
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 3px;
+  }
+
+  &__description {
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    text-transform: uppercase;
+
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform-origin: left;
+    transform: translate(110%, -50%) rotate(90deg);
+  }
+
+  &__name {
+    font-weight: 600;
+    font-size: 1.8rem;
+    line-height: 2.7rem;
+  }
+}
